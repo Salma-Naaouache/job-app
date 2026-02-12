@@ -33,17 +33,14 @@ build-job:
 ############################################
 # STAGE 2: TEST
 ############################################
-test-job:
+test-job: 
   stage: test
   image: node:18
-  # Remove the dependencies: [build-job] line if you want a fresh start
   script:
-    - echo "Installing fresh dependencies for Linux environment..."
-    - npm install
-    - echo "Running unit tests..."
+    - echo "Exécution des tests unitaires..."
     - npm test
-    - echo "All tests passed!"
-  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+    - echo "Tous les tests sont passés!"
+  coverage:  '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
 
 ############################################
 # STAGE 3: SECURITY

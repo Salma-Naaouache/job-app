@@ -36,9 +36,10 @@ build-job:
 test-job:
   stage: test
   image: node:18
-  dependencies:
-    - build-job
+  # Remove the dependencies: [build-job] line if you want a fresh start
   script:
+    - echo "Installing fresh dependencies for Linux environment..."
+    - npm install
     - echo "Running unit tests..."
     - npm test
     - echo "All tests passed!"
